@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Àlgebra · Primer parcial g: teoria completa i generador automàtic d'exercicis de complexos, polinomis, matrius i sistemes." />
+  <title>Àlgebra · Primer Parcial — Teoria i generador</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Salta al contingut</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#inici" data-view-link="inici" aria-label="Inici">
+        <span class="brand-mark">A</span>
+        <span class="brand-text">
+          <strong>Àlgebra</strong>
+          <small>Primer parcial · g</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegació principal">
+        <button class="nav-link" data-view="inici">Inici</button>
+        <button class="nav-link" data-view="prioritats">Prioritats</button>
+        <button class="nav-link" data-view="teoria">Teoria</button>
+        <button class="nav-link" data-view="apunts">Apunts</button>
+        <button class="nav-link" data-view="generador">Generador</button>
+        <button class="nav-link" data-view="examen">Parcial</button>
+        <button class="nav-link" data-view="anteriors">Exàmens reals</button>
+        <button class="nav-link" data-view="formulari">Formulari</button>
+      </nav>
+
+      <div class="topbar-actions">
+        <button class="icon-btn" id="theme-toggle" title="Canviar tema" aria-label="Canviar tema">
+          <span class="theme-icon">◐</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================= INICI ============================= -->
+    <section class="view" id="view-inici">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span> Curs 2025/26 · Grau en Enginyeria Informàtica</div>
+          <h1>Domina el primer parcial d'<span class="accent">Àlgebra</span> resolent.</h1>
+          <p class="hero-sub">Teoria completa en català i un generador infinit d'exercicis amb el mateix patró que els parcials de la g. Cada problema és nou, amb solució pas a pas calculada en directe.</p>
+          <div class="hero-cta">
+            <button class="btn primary lg" data-go="generador" data-topic="matrius">Genera un exercici</button>
+            <button class="btn ghost lg" data-go="examen">Parcial complet</button>
+            <button class="btn ghost lg" data-go="anteriors">Exàmens reals</button>
+          </div>
+          <div class="hero-stats">
+            <div><strong id="stat-generated">0</strong><span>exercicis generats</span></div>
+            <div><strong data-progress>0</strong><span>apartats encertats</span></div>
+            <div><strong>∞</strong><span>variants possibles</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="paper-card">
+            <div class="paper-head">
+              <span>PRIMER PARCIAL</span>
+              <span class="paper-score">10 pts</span>
+            </div>
+            <div class="paper-line"><span class="num">1</span><div><strong>Complexos i polinomis</strong><small>Arrel complexa · Vieta · factorització</small></div><span class="pts">4</span></div>
+            <div class="paper-line"><span class="num">2</span><div><strong>Matrius i sistemes</strong><small>Gauss-Jordan · P · paràmetres</small></div><span class="pts">4</span></div>
+            <div class="paper-line"><span class="num">3</span><div><strong>Qüestions de teoria</strong><small>4 afirmacions cert/fals</small></div><span class="pts">2</span></div>
+            <div class="paper-foot">
+              <span class="tag">120 min</span><span class="tag">sense calculadora</span><span class="tag">patró estable</span>
+            </div>
+          </div>
+          <div class="float-chip chip-a">J = rref(A)</div>
+          <div class="float-chip chip-b">z = re<sup>iθ</sup></div>
+          <div class="float-chip chip-c">P·A = J</div>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">El patró</div>
+          <h2>Sempre cau el mateix, amb números diferents</h2>
+        </div>
+        <p>Hem analitzat els parcials de 2017 a 2025. L'estructura no canvia: canvia el polinomi, la matriu i les afirmacions de teoria. Per això el generador et dona infinits exàmens equivalents.</p>
+      </div>
+
+      <div class="pattern-grid">
+        <article class="pattern-card">
+          <div class="pattern-top"><span class="tag blue">Bloc 1 · 4 punts</span><span class="pattern-icon">ℂ</span></div>
+          <h3>Complexos + polinomis</h3>
+          <ul>
+            <li>Comprovar que <span class="math">z</span> és arrel de <span class="math">p(x)</span>.</li>
+            <li>Trobar les altres arrels (conjugat + Vieta).</li>
+            <li>Dibuixar-les al pla complex.</li>
+            <li>Factoritzar a <span class="math">C[x]</span> i a <span class="math">R[x]</span>.</li>
+          </ul>
+          <button class="link-btn" data-go="generador" data-topic="polinomis">Practicar aquest bloc →</button>
+        </article>
+
+        <article class="pattern-card">
+          <div class="pattern-top"><span class="tag teal">Bloc 2 · 4 punts</span><span class="pattern-icon">⊞</span></div>
+          <h3>Matrius + sistemes</h3>
+          <ul>
+            <li>Matriu de Gauss-Jordan <span class="math">J</span> i rang.</li>
+            <li>Matriu invertible <span class="math">P</span> amb <span class="math">PA = J</span>.</li>
+            <li>Fila de <span class="math">J</span> com a combinació lineal.</li>
+            <li>Sistema paramètric, dimensió i paràmetres.</li>
+          </ul>
+          <button class="link-btn" data-go="generador" data-topic="matrius">Practicar aquest bloc →</button>
+        </article>
+
+        <article class="pattern-card">
+          <div class="pattern-top"><span class="tag amber">Bloc 3 · 2 punts</span><span class="pattern-icon">✓</span></div>
+          <h3>Qüestions de teoria</h3>
+          <ul>
+            <li>4 afirmacions cert/fals.</li>
+            <li>Cal justificar o donar contraexemple.</li>
+            <li>Complexos, polinomis, matrius i sistemes.</li>
+            <li>Trampes clàssiques: commutativitat, determinants, rang.</li>
+          </ul>
+          <button class="link-btn" data-go="generador" data-topic="qüestions">Practicar aquest bloc →</button>
+        </article>
+      </div>
+
+      <div class="split-feature">
+        <div class="feature-copy">
+          <div class="eyebrow">Per què funciona</div>
+          <h2>No és un llistat d'exercicis resolts. És un motor que en crea de nous.</h2>
+          <p>Els generadors construeixen polinomis a partir de les seves arrels, matrius a partir de la seva forma de Gauss-Jordan i sistemes amb solucions exactes. Les solucions es calculen amb aritmètica de fraccions, no són text fix.</p>
+          <div class="feature-list">
+            <div><span class="check">✓</span><div><strong>Solucions pas a pas</strong><small>No només el resultat: el mètode, els càlculs intermedis i les comprovacions.</small></div></div>
+            <div><span class="check">✓</span><div><strong>Dibuixos automàtics</strong><small>Pla complex amb arrels, potències i vectors, generat a partir de les dades de l'exercici.</small></div></div>
+            <div><span class="check">✓</span><div><strong>Mode parcial</strong><small>Un examen complet de 3 blocs amb temporitzador de 120 minuts i solucions ocultes.</small></div></div>
+          </div>
+        </div>
+        <div class="code-card" aria-hidden="true">
+          <div class="code-head"><span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span><span>generador.js</span></div>
+          <pre><code><span class="c-key">const</span> p = <span class="c-fn">buildPoly</span>({
+  arrel: <span class="c-num">1 - 2i</span>,
+  conjugada: <span class="c-num">1 + 2i</span>,
+  tercera: <span class="c-num">-2/3</span>
+});
+
+<span class="c-key">const</span> J = <span class="c-fn">rref</span>(A);
+<span class="c-key">const</span> P = <span class="c-fn">pasDeFiles</span>(I);
+
+<span class="c-com">// P·A = J  ✓</span>
+<span class="c-com">// solució exacta, no hardcodejada</span></code></pre>
+        </div>
+      </div>
+
+      <div class="section-head compact">
+        <div>
+          <div class="eyebrow">Comença ara</div>
+          <h2>Tria el que vols practicar</h2>
+        </div>
+      </div>
+      <div class="quick-grid">
+        <button class="quick-card" data-go="teoria" data-theory="complexos"><span class="quick-icon">ℂ</span><strong>Complexos</strong><small>Polar, potències, arrels i pla complex</small></button>
+        <button class="quick-card" data-go="teoria" data-theory="polinomis"><span class="quick-icon">𝑥</span><strong>Polinomis</strong><small>Vieta, conjugades i factorització</small></button>
+        <button class="quick-card" data-go="teoria" data-theory="matrius"><span class="quick-icon">⊞</span><strong>Matrius</strong><small>Gauss-Jordan, P, determinant i rang</small></button>
+        <button class="quick-card" data-go="teoria" data-theory="sistemes"><span class="quick-icon">≡</span><strong>Sistemes</strong><small>Rouché-Capelli i solucions paramètriques</small></button>
+      </div>
+    </section>
+
+    <!-- ============================= PRIORITATS ============================= -->
+    <section class="view" id="view-prioritats" hidden>
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Compte enrere pel parcial</div>
+          <h1>El 100% imprescindible</h1>
+          <p>No tot val el mateix. Això és el que t'ha de sortir bé segur, ordenat per la freqüència real amb què apareix als 8 parcials reals de 2017 a 2025 — vuit exàmens diferents, sempre amb el mateix esquelet.</p>
+        </div>
+        <button class="btn primary" data-go="generador" data-topic="matrius">Practica ara</button>
+      </div>
+
+      <div class="countdown">
+        <div style="text-align:center;min-width:72px">
+          <div class="countdown-num" id="countdown-num">4</div>
+          <div class="muted" style="font-size:.68rem;text-transform:uppercase;letter-spacing:.06em" id="countdown-unit">dies</div>
+        </div>
+        <div class="countdown-text" id="countdown-text">El parcial és <strong>divendres</strong>. Estructura fixa: <strong>10 punts en 120 minuts</strong>, sense calculadora — Bloc 1 complexos i polinomis (4 pts), Bloc 2 matrius i sistema (4 pts), Bloc 3 quatre qüestions cert/fals (2 pts).</div>
+      </div>
+
+      <div class="tier-head tier-s"><span class="tag red">Nivell S</span><h2>Surt als 8 exàmens — zero marge de dubte</h2><span class="tier-freq">8/8 anys · 2017–2025</span></div>
+      <div class="tier-grid tier-s">
+        <div class="mini-card"><strong>Gauss-Jordan i rang</strong><p>Reduir A a la seva forma J i comptar els pivots. Primer apartat del bloc de matrius a tots els exàmens, sense excepció.</p></div>
+        <div class="mini-card"><strong>Matriu P amb PA = J</strong><p>Les mateixes operacions aplicades a la identitat. Igual d'universal: els 8 exàmens el demanen.</p></div>
+        <div class="mini-card"><strong>Resoldre un sistema amb Gauss-Jordan</strong><p>Incògnites lligades/lliures, equació paramètrica i dimensió = n − rang(A). Sempre hi és, tant si és numèric, homogeni o amb paràmetre.</p></div>
+        <div class="mini-card"><strong>Factoritzar a C[x] i a R[x]</strong><p>Tot polinomi de l'exercici 1 s'acaba factoritzant als dos cossos. Sense excepció en 8 anys.</p></div>
+        <div class="mini-card"><strong>Justificar cada cert/fals</strong><p>Les 4 qüestions de teoria (2 punts) exigeixen sempre un argument o un contraexemple explícit; un "cert" sense justificar val (pràcticament) 0.</p></div>
+        <div class="mini-card"><strong>Mòdul, argument i els 16 angles</strong><p>Encara que els últims anys no ho demanin com a apartat propi, els necessites per dibuixar les arrels i per factoritzar. De memòria.</p></div>
+      </div>
+
+      <div class="tier-head tier-a"><span class="tag amber">Nivell A</span><h2>El patró dels últims 4 anys seguits</h2><span class="tier-freq">4/4 anys · 2022–2025</span></div>
+      <div class="tier-grid tier-a">
+        <div class="mini-card"><strong>Comprova l'arrel + conjugat + Vieta</strong><p>Des de 2022 ja no et demanen calcular totes les arrels: et donen una arrel z, l'has de comprovar, donar el conjugat (coeficients reals) i trobar la tercera amb Vieta: r₁+r₂+r₃ = −b/a.</p></div>
+        <div class="mini-card"><strong>Dibuixar al pla complex</strong><p>Instrucció explícita als 4 últims parcials: marca eixos i punts (les arrels, o bé z, z² i z³) i comprova la simetria respecte de l'eix real.</p></div>
+        <div class="mini-card"><strong>det(P)</strong><p>Demanat explícitament el 2023 i el 2024 (i amb A no invertible, el 2017). Calcula'l encara que no et ho demanin: et serveix per comprovar que P és invertible.</p></div>
+        <div class="mini-card"><strong>Fila de J com a combinació de files d'A</strong><p>2023 i 2024: es llegeix directament de la fila corresponent de P, no cal recalcular res.</p></div>
+        <div class="mini-card"><strong>Teoria dominada per matrius i determinants</strong><p>Gairebé cada any, 2 o 3 de les 4 qüestions van de no-commutativitat, det(kA)=kⁿdet(A), rang o unicitat de la forma de Gauss-Jordan.</p></div>
+      </div>
+
+      <div class="tier-head tier-b"><span class="tag blue">Nivell B</span><h2>Pot sortir — val la pena repassar-ho igualment</h2><span class="tier-freq">presència irregular</span></div>
+      <div class="tier-grid tier-b">
+        <div class="mini-card"><strong>Sistema amb paràmetre</strong><p>2017 i 2025: discutir la compatibilitat en funció d'un paràmetre b, aprofitant la P ja calculada.</p></div>
+        <div class="mini-card"><strong>"Hi ha solució amb x = valor?"</strong><p>Molt freqüent entre 2017 i 2022, absent els 3 últims anys. Si torna, es respon substituint a l'equació paramètrica.</p></div>
+        <div class="mini-card"><strong>Arrels n-èsimes directes (wⁿ = c)</strong><p>Format dels exàmens 2017–2021: en lloc de donar-te una arrel, calcules totes les arrels de w³=−8, w⁴=−81, X⁵=32...</p></div>
+        <div class="mini-card"><strong>Cramer i matriu adjunta</strong><p>Mai demanats explícitament als 8 exàmens reals, però són teoria del curs i poden amagar-se en una qüestió cert/fals.</p></div>
+      </div>
+
+      <div class="section-head compact"><div><div class="eyebrow">Memoritza</div><h2>Les 10 coses que has de recordar sense pensar</h2></div></div>
+      <ol class="checklist">
+        <li>Vieta grau 3: <span class="math">r<sub>1</sub>+r<sub>2</sub>+r<sub>3</sub> = −b/a</span> — el signe és <strong>menys</strong>.</li>
+        <li><span class="math">det(kA) = k<sup>n</sup>det(A)</span>, mai <span class="math">k·det(A)</span>.</li>
+        <li><span class="math">AB ≠ BA</span> en general — mai ho suposis sense comprovar-ho.</li>
+        <li>Fila o columna dependent ⇒ <span class="math">det(A) = 0</span> ⇒ la matriu no és invertible.</li>
+        <li>Les operacions elementals <strong>no canvien el rang</strong> d'una matriu.</li>
+        <li>Rouché: compatible ⇔ <span class="math">rang(A) = rang(A∣B)</span>; dimensió = <span class="math">n − rang(A)</span>.</li>
+        <li><span class="math">(AB)<sup>−1</sup> = B<sup>−1</sup>A<sup>−1</sup></span> — l'ordre s'inverteix.</li>
+        <li>Coeficients reals i <span class="math">z</span> arrel ⇒ <span class="math">z̄</span> també és arrel.</li>
+        <li>La matriu P no és única, però ha de complir <span class="math">PA = J</span> i ser invertible — comprova-ho sempre.</li>
+        <li>La taula dels 16 angles privilegiats (múltiples de <span class="math">π/6</span> i <span class="math">π/4</span>), de memòria.</li>
+      </ol>
+      <div class="tip wide">Els contraexemples clàssics (matriu nilpotent, divisors de zero, matrius que no commuten, reflexió...) que necessites per justificar un "fals" estan tots a <a href="#teoria/teoria" data-view-link="teoria" data-theory="teoria">Teoria → Cert o fals</a>.</div>
+
+      <div class="section-head compact"><div><div class="eyebrow">Calendari</div><h2>Pla pels propers dies</h2></div></div>
+      <div class="timeline">
+        <div><span class="time">Dilluns 26</span><div><strong>Bloc 2 complet.</strong> Gauss-Jordan, P, det(P) i un sistema (numèric i amb paràmetre) al <a href="#generador/matrius" data-view-link="generador" data-topic="matrius">Generador → Matrius</a>. Repassa <a href="#apunts" data-view-link="apunts">Apunts → Rang i Gauss-Jordan</a> si et falla algun pas.</div></div>
+        <div><span class="time">Dimarts 27</span><div><strong>Bloc 1 complet.</strong> Comprova l'arrel, conjugat, Vieta, dibuix i factorització a R[x] al <a href="#generador/polinomis" data-view-link="generador" data-topic="polinomis">Generador → Polinomis</a>. Deu exercicis com a mínim.</div></div>
+        <div><span class="time">Dimecres 28</span><div><strong>Teoria cert/fals.</strong> Repeteix el <a href="#generador/qüestions" data-view-link="generador" data-topic="qüestions">qüestionari del Generador</a> fins que justifiquis cada resposta sense mirar la solució.</div></div>
+        <div><span class="time">Dijous 29</span><div><strong>Dos parcials complets cronometrats</strong> (120 min cada un) a <a href="#examen" data-view-link="examen">Parcial</a>. Corregeix-los i torna a mirar només els apartats que has fallat.</div></div>
+        <div><span class="time">Divendres 30, abans d'entrar</span><div>Repassa únicament aquesta pàgina: les deu coses de memòria i els exàmens reals dels dos últims anys a <a href="#anteriors" data-view-link="anteriors">Exàmens reals</a>.</div></div>
+      </div>
+
+      <div class="tip wide"><strong>Última cosa:</strong> escriu sempre els passos intermedis — encara que una arrel no et surti, deixa plantejada la factorització igualment, perquè els passos correctes compten. Repassa també l'<a href="#teoria/estrategia" data-view-link="teoria" data-theory="estrategia">estratègia de temps del dia de l'examen</a>.</div>
+    </section>
+
+    <!-- ============================= TEORIA ============================= -->
+    <section class="view" id="view-teoria" hidden>
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Teoria completa</div>
+          <h1>Tot el que necessites, explicat per fer-lo servir</h1>
+          <p>Definicions, fórmules, exemples resolts i estratègies d'examen. Els exercicis per practicar són a la secció Generador.</p>
+        </div>
+        <button class="btn primary" data-go="generador" data-topic="complexos">Anar al generador</button>
+      </div>
+
+      <div class="theory-layout">
+        <aside class="theory-sidebar" aria-label="Temes de teoria">
+          <button class="theory-tab active" data-theory="complexos"><span>01</span> Nombres complexos</button>
+          <button class="theory-tab" data-theory="polinomis"><span>02</span> Polinomis</button>
+          <button class="theory-tab" data-theory="matrius"><span>03</span> Matrius i Gauss-Jordan</button>
+          <button class="theory-tab" data-theory="sistemes"><span>04</span> Sistemes lineals</button>
+          <button class="theory-tab" data-theory="teoria"><span>05</span> Cert o fals</button>
+          <button class="theory-tab" data-theory="estrategia"><span>06</span> Estratègia d'examen</button>
+        </aside>
+        <article class="theory-article" id="theory-article"></article>
+      </div>
+    </section>
+
+    <!-- ============================= APUNTS ============================= -->
+    <section class="view" id="view-apunts" hidden>
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Resum fidel del llibre</div>
+          <h1>Apunts del curs, en versió parcial</h1>
+          <p>Resum dels <em>Apunts d'àlgebra lineal</em> (Nart i Xarles), citant teoremes amb la numeració original, però retallat al temari del primer parcial: capítol 1 (nombres complexos) i capítol 2 (matrius). Els capítols 3 i 4 (espais vectorials, diagonalització) són pel segon parcial.</p>
+        </div>
+        <button class="btn primary" data-go="prioritats">Veure què és prioritari</button>
+      </div>
+
+      <div class="theory-layout apunts-layout">
+        <aside class="theory-sidebar apunts-sidebar" aria-label="Capítols dels apunts">
+          <button class="theory-tab apunts-tab active" data-apunts="cosPolinomis"><span>§1.1–1.2</span> Cossos i polinomis</button>
+          <button class="theory-tab apunts-tab" data-apunts="complexosPolar"><span>§1.3–1.5</span> Complexos i forma polar</button>
+          <button class="theory-tab apunts-tab" data-apunts="matriusInvertibles"><span>§2.1–2.2</span> Matrius invertibles</button>
+          <button class="theory-tab apunts-tab" data-apunts="rangGauss"><span>§2.3–2.4</span> Rang i Gauss-Jordan</button>
+          <button class="theory-tab apunts-tab" data-apunts="sistemesRouche"><span>§2.5</span> Sistemes: Rouché</button>
+          <button class="theory-tab apunts-tab" data-apunts="determinants"><span>§2.6</span> Determinants</button>
+        </aside>
+        <article class="theory-article apunts-article" id="apunts-article"></article>
+      </div>
+    </section>
+
+    <!-- ============================= GENERADOR ============================= -->
+    <section class="view" id="view-generador" hidden>
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Generador automàtic</div>
+          <h1>Un exercici nou cada vegada</h1>
+          <p>Tria un bloc, resol cada apartat i escriu la resposta: et diem si és correcta. Si t'encalles, obre només la solució d'aquell apartat.</p>
+        </div>
+        <div class="page-head-actions">
+          <span class="progress-pill">Encerts: <strong data-progress>0</strong> apartats · <strong data-progress="pct">—</strong></span>
+          <button class="btn ghost" id="btn-new-exercise">↻ Nou exercici</button>
+        </div>
+      </div>
+
+      <div class="generator-tabs" role="tablist">
+        <button class="gen-tab active" data-topic="complexos" role="tab">Complexos</button>
+        <button class="gen-tab" data-topic="polinomis" role="tab">Polinomis</button>
+        <button class="gen-tab" data-topic="matrius" role="tab">Matrius i sistemes</button>
+        <button class="gen-tab" data-topic="qüestions" role="tab">Cert o fals</button>
+      </div>
+
+      <div class="gen-toolbar" id="gen-toolbar">
+        <div class="mode-group" id="complex-modes">
+          <span class="toolbar-label">Tipus:</span>
+          <button class="mode-chip active" data-mode="polar">Polar i potències</button>
+          <button class="mode-chip" data-mode="roots">Arrels n-èsimes</button>
+          <button class="mode-chip" data-mode="operations">Operacions</button>
+        </div>
+        <div class="mode-group" id="matrix-modes" hidden>
+          <span class="toolbar-label">Sistema:</span>
+          <button class="mode-chip active" data-mode="mixed">Aleatori (numèric / paràmetre)</button>
+          <button class="mode-chip" data-mode="numeric">Numèric</button>
+          <button class="mode-chip" data-mode="param">Amb paràmetre b</button>
+        </div>
+        <div class="mode-group" id="quiz-modes" hidden>
+          <span class="toolbar-label">Tema:</span>
+          <button class="mode-chip active" data-mode="all">Tot</button>
+          <button class="mode-chip" data-mode="complexos">Complexos</button>
+          <button class="mode-chip" data-mode="polinomis">Polinomis</button>
+          <button class="mode-chip" data-mode="matrius">Matrius</button>
+        </div>
+      </div>
+
+      <div class="gen-panel" id="generator-exercise">
+        <div class="exercise-head">
+          <div><span class="exercise-badge" id="exercise-badge">Complexos</span><span class="exercise-title-text" id="exercise-title"></span></div>
+          <div class="exercise-tools">
+            <button class="btn small ghost" id="btn-toggle-solution">Mostra tota la solució</button>
+            <button class="btn small primary" id="btn-another">Un altre</button>
+          </div>
+        </div>
+        <div class="exercise-body">
+          <div class="exercise-statement" id="exercise-statement"></div>
+          <div class="exercise-plot" id="exercise-plot" hidden>
+            <canvas id="complex-canvas" height="340" data-plot="complex"></canvas>
+            <div class="plot-legend" id="plot-legend"></div>
+          </div>
+          <div class="exercise-solution" id="exercise-solution" hidden></div>
+        </div>
+      </div>
+
+      <div class="gen-panel" id="generator-quiz" hidden>
+        <div class="exercise-head">
+          <div><span class="exercise-badge amber">Teoria</span><span class="exercise-title-text">4 afirmacions · cert o fals</span></div>
+          <div class="exercise-tools">
+            <button class="btn small ghost" id="btn-reveal-quiz">Mostra solucions</button>
+            <button class="btn small primary" id="btn-new-quiz">Noves qüestions</button>
+          </div>
+        </div>
+        <div class="quiz-list" id="quiz-list"></div>
+      </div>
+
+      <div class="tip wide">
+        <strong>Consell:</strong> intenta resoldre l'exercici en paper abans de mirar la solució. Si t'encalles, obre la solució només del primer apartat i torna-ho a provar.
+      </div>
+    </section>
+
+    <!-- ============================= EXAMEN ============================= -->
+    <section class="view" id="view-examen" hidden>
+      <div class="page-head exam-page-head">
+        <div>
+          <div class="eyebrow">Simulador de parcial</div>
+          <h1>Parcial complet de 120 minuts</h1>
+          <p>Mateixa estructura, mateixa puntuació, temps real. Escriu les respostes de cada apartat i, quan acabis, prem «Entrega i corregeix» per obtenir la nota.</p>
+        </div>
+        <div class="exam-controls">
+          <div class="timer" id="exam-timer" title="Temporitzador">
+            <span class="timer-label">Temps</span>
+            <span class="timer-value" id="timer-value">120:00</span>
+            <button class="icon-btn" id="timer-toggle" aria-label="Iniciar temporitzador">▶</button>
+            <button class="icon-btn" id="timer-reset" aria-label="Reiniciar temporitzador">↺</button>
+          </div>
+          <button class="btn ghost" id="btn-new-exam">↻ Nou parcial</button>
+          <button class="btn ghost" id="btn-print-exam">Imprimeix</button>
+          <button class="btn ghost" id="btn-show-exam-solutions">Mostra solucions</button>
+          <button class="btn primary" id="btn-deliver-exam">Entrega i corregeix</button>
+        </div>
+      </div>
+      <div class="exam-grade" id="exam-grade" hidden></div>
+
+      <div class="exam-paper" id="exam-paper"></div>
+      <div class="exam-solutions" id="exam-solutions" hidden></div>
+    </section>
+
+    <!-- ============================= EXÀMENS REALS ============================= -->
+    <section class="view" id="view-anteriors" hidden>
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Arxiu</div>
+          <h1>Exàmens reals d'anys anteriors</h1>
+          <p>Els enunciats originals dels primers parcials de 2017 a 2025, amb la solució de cada exercici. Les parts de matrius i sistemes es calculen amb aritmètica exacta.</p>
+        </div>
+        <button class="btn primary" data-go="examen">Fes un simulacre</button>
+      </div>
+      <div class="gen-toolbar">
+        <div class="mode-group" id="past-years">
+          <span class="toolbar-label">Curs:</span>
+        </div>
+      </div>
+      <div class="exam-paper" id="past-paper"></div>
+    </section>
+
+    <!-- ============================= FORMULARI ============================= -->
+    <section class="view" id="view-formulari" hidden>
+      <div class="page-head">
+        <div>
+          <div class="eyebrow">Formulari</div>
+          <h1>Les fórmules, en una pàgina</h1>
+          <p>Consulta ràpida per a complexos, polinomis, matrius i sistemes. Inclou la taula dels 16 angles privilegiats.</p>
+        </div>
+        <button class="btn primary" data-go="generador" data-topic="complexos">Practicar</button>
+      </div>
+
+      <div class="formulari-layout">
+        <section class="formula-section">
+          <div class="formula-section-head"><span class="formula-num">01</span><h2>Els 16 angles privilegiats</h2></div>
+          <p>Si l'argument és un d'aquests, la conversió polar-cartesiana és exacta. Val la pena memoritzar-los.</p>
+          <div class="angle-layout">
+            <div class="angle-table-wrap" id="angle-table"></div>
+            <div class="angle-visual">
+              <canvas id="angle-canvas" height="300" data-plot="angle"></canvas>
+              <div class="angle-buttons" id="angle-buttons"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="formula-section">
+          <div class="formula-section-head"><span class="formula-num">02</span><h2>Nombres complexos</h2></div>
+          <div class="formula-grid">
+            <div class="formula"><span class="formula-title">Forma binòmica</span><span class="math">z = a + bi</span><p><span class="math">a = Re(z)</span>, <span class="math">b = Im(z)</span>.</p></div>
+            <div class="formula"><span class="formula-title">Forma polar</span><span class="math">z = r(cos θ + i sin θ) = re<sup>iθ</sup></span><p><span class="math">r = |z|</span>, <span class="math">θ = arg(z)</span>.</p></div>
+            <div class="formula"><span class="formula-title">Mòdul</span><span class="math">|z| = √(a<sup>2</sup>+b<sup>2</sup>)</span></div>
+            <div class="formula"><span class="formula-title">Argument</span><span class="math">tan θ = b/a</span><p>Ajusta el quadrant!</p></div>
+            <div class="formula"><span class="formula-title">Conjugat</span><span class="math">z̄ = a − bi</span><p><span class="math">z·z̄ = |z|<sup>2</sup></span>.</p></div>
+            <div class="formula"><span class="formula-title">Invers</span><span class="math">z<sup>−1</sup> = z̄/|z|<sup>2</sup></span></div>
+            <div class="formula"><span class="formula-title">Producte polar</span><span class="math">r<sub>1</sub>r<sub>2</sub>e<sup>i(θ<sub>1</sub>+θ<sub>2</sub>)</sup></span></div>
+            <div class="formula"><span class="formula-title">Quocient polar</span><span class="math">(r<sub>1</sub>/r<sub>2</sub>)e<sup>i(θ<sub>1</sub>−θ<sub>2</sub>)</sup></span></div>
+            <div class="formula"><span class="formula-title">De Moivre</span><span class="math">z<sup>n</sup> = r<sup>n</sup>e<sup>inθ</sup></span></div>
+            <div class="formula"><span class="formula-title">Arrels n-èsimes</span><span class="math">ρ<sup>1/n</sup>e<sup>i(φ+2πk)/n</sup></span><p><span class="math">k = 0,…,n−1</span>.</p></div>
+          </div>
+        </section>
+
+        <section class="formula-section">
+          <div class="formula-section-head"><span class="formula-num">03</span><h2>Polinomis i factorització</h2></div>
+          <div class="formula-grid">
+            <div class="formula"><span class="formula-title">Teorema fonamental</span><span class="math">p(x) = a<sub>n</sub>∏(x−r<sub>i</sub>)</span><p>Grau <span class="math">n</span> → <span class="math">n</span> arrels complexes.</p></div>
+            <div class="formula"><span class="formula-title">Teorema del factor</span><span class="math">p(r)=0 ⇔ (x−r) | p(x)</span></div>
+            <div class="formula"><span class="formula-title">Conjugades</span><span class="math">p∈R[x], p(z)=0 ⇒ p(z̄)=0</span></div>
+            <div class="formula"><span class="formula-title">Factor conjugat</span><span class="math">(x−z)(x−z̄) = x<sup>2</sup>−2ax+a<sup>2</sup>+b<sup>2</sup></span></div>
+            <div class="formula"><span class="formula-title">Vieta grau 3</span><span class="math">Σr<sub>i</sub> = −b/a</span><p><span class="math">r<sub>1</sub>r<sub>2</sub>r<sub>3</sub> = −d/a</span>.</p></div>
+            <div class="formula"><span class="formula-title">Irreductibles R[x]</span><span class="math">grau 1 o grau 2 amb Δ&lt;0</span></div>
+          </div>
+        </section>
+
+        <section class="formula-section">
+          <div class="formula-section-head"><span class="formula-num">04</span><h2>Matrius i determinants</h2></div>
+          <div class="formula-grid">
+            <div class="formula"><span class="formula-title">Producte</span><span class="math">(AB)<sub>ij</sub> = Σ<sub>k</sub>a<sub>ik</sub>b<sub>kj</sub></span></div>
+            <div class="formula"><span class="formula-title">Transposada</span><span class="math">(AB)<sup>t</sup> = B<sup>t</sup>A<sup>t</sup></span></div>
+            <div class="formula"><span class="formula-title">Det. 2×2</span><span class="math">|A| = ad − bc</span></div>
+            <div class="formula"><span class="formula-title">Det. producte</span><span class="math">det(AB) = det(A)det(B)</span></div>
+            <div class="formula"><span class="formula-title">Escalar</span><span class="math">det(kA) = k<sup>n</sup>det(A)</span></div>
+            <div class="formula"><span class="formula-title">Inversa 2×2</span><span class="math">A<sup>−1</sup> = (1/det A) [[d,−b],[−c,a]]</span></div>
+            <div class="formula"><span class="formula-title">Invertible</span><span class="math">det(A) ≠ 0 ⇔ rang(A)=n</span></div>
+            <div class="formula"><span class="formula-title">Rang</span><span class="math">nombre de pivots de J</span></div>
+          </div>
+        </section>
+
+        <section class="formula-section">
+          <div class="formula-section-head"><span class="formula-num">05</span><h2>Sistemes lineals</h2></div>
+          <div class="formula-grid">
+            <div class="formula"><span class="formula-title">Forma matricial</span><span class="math">AX = B</span></div>
+            <div class="formula"><span class="formula-title">Incompatible</span><span class="math">rang(A) ≠ rang(A|B)</span></div>
+            <div class="formula"><span class="formula-title">SCD</span><span class="math">rang(A)=rang(A|B)=n</span></div>
+            <div class="formula"><span class="formula-title">SCI</span><span class="math">rang(A)=rang(A|B)&lt;n</span><p><span class="math">n−rang(A)</span> graus de llibertat.</p></div>
+            <div class="formula"><span class="formula-title">Solució</span><span class="math">X = X<sub>p</sub> + λ<sub>1</sub>v<sub>1</sub>+…</span></div>
+            <div class="formula"><span class="formula-title">Matriu P</span><span class="math">PA = J</span><p>Mateixes operacions aplicades a <span class="math">I</span>.</p></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Àlgebra · Primer parcial</strong>
+      <span>Teoria i generador d'exercicis. Fet per practicar, no per copiar.</span>
+    </div>
+    <div class="footer-links">
+      <button data-view="prioritats">Prioritats</button>
+      <button data-view="teoria">Teoria</button>
+      <button data-view="apunts">Apunts</button>
+      <button data-view="generador">Generador</button>
+      <button data-view="examen">Parcial</button>
+      <button data-view="anteriors">Exàmens reals</button>
+      <button data-view="formulari">Formulari</button>
+    </div>
+  </footer>
+
+  <script src="assets/js/core/fraction.js"></script>
+  <script src="assets/js/core/complex.js"></script>
+  <script src="assets/js/core/matrix.js"></script>
+  <script src="assets/js/core/format.js"></script>
+  <script src="assets/js/core/expr.js"></script>
+  <script src="assets/js/generators/random.js"></script>
+  <script src="assets/js/generators/complex.js"></script>
+  <script src="assets/js/generators/poly.js"></script>
+  <script src="assets/js/generators/matrix.js"></script>
+  <script src="assets/js/generators/theory.js"></script>
+  <script src="assets/js/generators/exam.js"></script>
+  <script src="assets/js/data/past-exams.js"></script>
+  <script src="assets/js/ui/theory-content.js"></script>
+  <script src="assets/js/ui/apunts-content.js"></script>
+  <script src="assets/js/ui/plots.js"></script>
+  <script src="assets/js/ui/practice.js"></script>
+  <script src="assets/js/ui/practice-specs.js"></script>
+  <script src="assets/js/ui/app.js"></script>
+</body>
+</html>
