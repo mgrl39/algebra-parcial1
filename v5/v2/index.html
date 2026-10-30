@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Càlcul · 1r Parcial — Repàs interactiu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E∫%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">∫</span>
+    <div>
+      <h1>Càlcul — 1r Parcial</h1>
+      <p class="subtitle">Enginyeria Informàtica · UAB</p>
+    </div>
+  </div>
+  <nav class="tabs" id="mainNav">
+    <button class="tab-btn active" data-tab="inici">Inici</button>
+    <button class="tab-btn tab-plan" data-tab="pla">🎯 Pla 3 dies</button>
+    <button class="tab-btn tab-hot" data-tab="examens">🔥 Exàmens reals</button>
+    <button class="tab-btn" data-tab="llistes">📚 Llistes de classe</button>
+    <button class="tab-btn" data-tab="teoria">Teoria</button>
+    <button class="tab-btn" data-tab="exercicis">Exercicis</button>
+    <button class="tab-btn" data-tab="test">Test</button>
+    <button class="tab-btn" data-tab="resolts">Problemes resolts</button>
+    <button class="tab-btn" data-tab="simulacre">Simulacre</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ INICI ============ -->
+<section id="tab-inici" class="tab-panel active">
+  <div class="card hero">
+    <h2>Prepara't pel 1r Parcial de Càlcul 💪</h2>
+    <p>Web feta a partir dels teus apunts, formularis, llistes (0–4) i <b>tots els exàmens anteriors</b>, donant prioritat als més recents:
+       el <b>Parcial del 3/11/2025</b> (el model més probable), Abril 2024 i Abril 2023.</p>
+    <div class="button-row">
+      <button class="btn-primary" data-goto="pla">🎯 Pla de 3 dies (llista prioritzada)</button>
+      <button class="btn-secondary" data-goto="examens">🔥 Examen 2025 resolt</button>
+      <button class="btn-secondary" data-goto="simulacre">⏱️ Fer un simulacre</button>
+    </div>
+  </div>
+
+  <div class="card priority">
+    <h3>🎯 Format de l'examen més recent (novembre 2025)</h3>
+    <div class="grid-2">
+      <div>
+        <p><b>Part 1 — Test (4 punts):</b> 5 preguntes amb <b>5 opcions</b> (a–e). <span class="good">+0.8</span> si l'encertes, <span class="bad">−0.2</span> si falles, 0 en blanc.</p>
+        <ul>
+          <li>Continuïtat amb paràmetre $k$ (límit $\frac{(\sin x^2)^2}{x^4}$)</li>
+          <li>Punt d'inflexió d'una logística $\frac{1000}{1+e^{-3(x-1)}}$</li>
+          <li>Polinomi d'interpolació per 3 punts</li>
+          <li>Fita del residu de Taylor de $\sin(0.1)$</li>
+          <li>Límit amb paràmetres $\frac{a(1-\cos bx)}{x^2}$</li>
+        </ul>
+      </div>
+      <div>
+        <p><b>Part 2 — 2 problemes (3 + 3 punts)</b>, amb justificació rigorosa:</p>
+        <ul>
+          <li><b>P1:</b> estudi complet de $f(x)=\frac{x^2+3}{x-1}$: asímptotes, creixement, concavitat, gràfica i <b>màxim/mínim absoluts a $[-2,0]$</b>.</li>
+          <li><b>P2:</b> polinomi de Taylor de grau 7 de $\frac{e^x-e^{-x}}{2}$ i <b>fita de l'error</b> per $f(1)$ (amb $e\lt3$ i taula de $n!$).</li>
+        </ul>
+        <p class="muted">Abans del 2025 el parcial era a l'abril, amb 2–3 exercicis de 10 punts (equacions exponencials, inequacions, derivades, recta tangent, Bolzano + unicitat, límits $1^\infty$ i estudi de funcions).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📈 Què surt cada any (exàmens reals)</h3>
+    <div class="table-scroll">
+    <table class="freq-table">
+      <tr><th>Tema</th><th>2025</th><th>2024</th><th>2023</th><th>2021</th><th>2018</th><th>Llista de classe</th><th>Practica</th></tr>
+      <tr><td>Estudi complet de funció + gràfica</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td class="list-col">L4 · L3</td><td><button class="link-btn" data-goto="exercicis" data-cat="functionStudy">Estudi de funció</button></td></tr>
+      <tr><td>Extrems absoluts a $[a,b]$ (Weierstrass)</td><td>✅</td><td></td><td></td><td></td><td></td><td class="list-col">L3 (10)</td><td><button class="link-btn" data-goto="exercicis" data-cat="absExtrema">Extrems absoluts</button></td></tr>
+      <tr><td>Taylor + fita de l'error</td><td>✅✅</td><td></td><td></td><td></td><td></td><td class="list-col"><b>L5</b></td><td><button class="link-btn" data-goto="exercicis" data-cat="taylorProblem">Taylor + fita</button></td></tr>
+      <tr><td>Límits (l'Hôpital, $1^\infty$, $0^0$)</td><td>✅✅</td><td>✅</td><td></td><td>✅</td><td>✅✅</td><td class="list-col">L4 · L1</td><td><button class="link-btn" data-goto="exercicis" data-cat="powLimit">Límits 1^∞</button></td></tr>
+      <tr><td>Continuïtat amb paràmetre</td><td>✅</td><td></td><td></td><td></td><td></td><td class="list-col">L1 (6–8)</td><td><button class="link-btn" data-goto="exercicis" data-cat="continuity">Continuïtat k</button></td></tr>
+      <tr><td>Interpolació</td><td>✅</td><td></td><td></td><td></td><td></td><td class="list-col"><span class="muted">encara no</span></td><td><button class="link-btn" data-goto="exercicis" data-cat="interpolation">Interpolació</button></td></tr>
+      <tr><td>Equacions exponencials/logarítmiques</td><td></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td class="list-col">L0 (12)</td><td><button class="link-btn" data-goto="exercicis" data-cat="expQuadratic">Equacions exp.</button></td></tr>
+      <tr><td>Recta tangent</td><td></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td class="list-col">L1 (11–12)</td><td><button class="link-btn" data-goto="exercicis" data-cat="tangent">Recta tangent</button></td></tr>
+      <tr><td>Bolzano + unicitat d'una solució</td><td></td><td>✅</td><td>✅</td><td>✅</td><td></td><td class="list-col">L1 · L2 (8–9)</td><td><button class="link-btn" data-goto="examens">Exàmens reals</button></td></tr>
+      <tr><td>Derivades (incl. $f(x)^{g(x)}$)</td><td></td><td>✅</td><td></td><td>✅</td><td>✅</td><td class="list-col">L2</td><td><button class="link-btn" data-goto="exercicis" data-cat="logDerivative">Derivada f^g</button></td></tr>
+      <tr><td>Inequacions</td><td></td><td>✅</td><td></td><td>✅</td><td></td><td class="list-col">L0 (1, 3)</td><td><button class="link-btn" data-goto="exercicis" data-cat="inequality">Inequacions</button></td></tr>
+    </table>
+    </div>
+    <p class="muted">Les llistes de classe (0–5) cobreixen gairebé tot el que surt als exàmens recents. La <b>interpolació</b> (test 2025) i el <b>mètode de Newton</b> encara no han sortit a cap llista; potser arriben amb la Llista 6.</p>
+    <p class="muted">La guia docent 2026-27 també inclou el <b>mètode de Newton</b> (zeros de funcions) al tema 2: és a la Teoria i als Exercicis per si de cas.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>🗓️ Pla per als últims dies</h3>
+      <ol>
+        <li>Fes l'<b>examen 2025</b> (pestanya Exàmens reals) sense mirar les solucions i corregeix-te.</li>
+        <li>Practica fins a encertar 3 seguits de: <b>Estudi de funció</b>, <b>Taylor + fita</b>, <b>Extrems absoluts</b>.</li>
+        <li>Fes el <b>test en format 2025</b> diverses vegades (+0.8/−0.2).</li>
+        <li>Repassa 2024 i 2023 (Bolzano + unicitat, equacions $e^{4x}$, recta tangent, límits $1^\infty$).</li>
+        <li>Fes les <b>llistes de classe</b>: primer la <b>Llista 5</b> (Taylor) i la <b>Llista 4</b> (estudi de funcions), després la 3 (extrems absoluts, optimització).</li>
+        <li>L'últim dia: un <b>simulacre</b> complet cronometrat.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>📊 El teu progrés</h3>
+      <p id="bestExam" class="muted"></p>
+      <div id="progressSummary" class="progress-grid"></div>
+      <button class="btn-secondary" id="resetProgressBtn">Reinicia el progrés</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLA 3 DIES ============ -->
+<section id="tab-pla" class="tab-panel">
+  <div class="card hero">
+    <h2>🎯 Pla de 3 dies: llista prioritzada</h2>
+    <p>Feta a partir dels <b>10 primers parcials (2018–2025)</b> i de les <b>llistes de classe 0–5</b>. Ordenada per la probabilitat que surti i els punts que val.
+       <b>S</b> = surt segur i val molt · <b>A</b> = gairebé cada any · <b>B</b> = punts ràpids · <b>C</b> = només un repàs.</p>
+    <p class="muted small">Una cosa clau: els professors <b>reutilitzen problemes de les llistes</b>. El 2020 era la Llista 3 problema 2, la Recu 2019 era la Llista 3 4(b), i el P1 del 2025 i l'Ex. 3 del 2024 són gairebé la Llista 4 1(a)/(f).</p>
+    <div class="list-meter plan-meter" id="planMeter"><span class="lm-text"></span><div class="progress-bar"><div class="progress-bar-fill"></div></div></div>
+  </div>
+
+  <div class="card">
+    <h3>📋 Rànquing de temes</h3>
+    <div class="table-scroll">
+      <table class="rank-table">
+        <thead><tr><th>#</th><th>Tier</th><th>Tema</th><th>Parcials<div class="rank-years" id="rankingHead"></div></th><th>Llistes</th><th>Pes</th></tr></thead>
+        <tbody id="rankingBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="days-grid" id="planDays"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>🧩 Plantilles per escriure-ho amb rigor</h3>
+      <p class="muted small">El 2025 deien: «no es consideraran vàlides respostes sense justificació». Aquestes plantilles són el mínim que has d'escriure.</p>
+      <div id="planTemplates"></div>
+    </div>
+    <div class="card">
+      <h3>⚠️ Errors que costen punts</h3>
+      <ul id="planErrors" class="error-list"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXÀMENS REALS ============ -->
+<section id="tab-examens" class="tab-panel">
+  <div class="card">
+    <h3>🔥 Exàmens reals del 1r Parcial (del més recent al més antic)</h3>
+    <p>Enunciats originals amb la solució completa de cada apartat. <b>Prioritat:</b> 2025 → 2024 → 2023. Intenta fer cada apartat abans d'obrir la solució.</p>
+    <div class="chip-row" id="realExamsFilter"></div>
+  </div>
+  <div id="realExamsList"></div>
+</section>
+
+<!-- ============ LLISTES DE CLASSE ============ -->
+<section id="tab-llistes" class="tab-panel">
+  <div class="card">
+    <h3>📚 Llistes de classe (el que fem a classe)</h3>
+    <p>Els exàmens d'altres anys diuen <b>com</b> pregunten; les llistes diuen <b>què</b> estem fent aquest curs. Si el temari canviés, es veuria aquí primer.
+       Aquí tens <b>tots els problemes</b> de les llistes 0–5, amb la solució i amb el que en surt a l'examen. Marca'ls com a fets per seguir el teu avanç.</p>
+    <p class="muted small">★★★ = surt directament a l'examen · ★★ = surt com a part d'un problema · ★ = bàsics (no es fan a classe però cal saber-los).
+       La Llista 5 (Taylor) és la més nova i encaixa amb el Problema 2 del Parcial 2025.</p>
+    <div class="list-nav" id="classListsNav"></div>
+  </div>
+  <div id="classListsContainer"></div>
+</section>
+
+<!-- ============ TEORIA ============ -->
+<section id="tab-teoria" class="tab-panel">
+  <div class="card">
+    <input type="text" id="theorySearch" placeholder="🔍 Cerca a la teoria (p.ex. 'Hôpital', 'Taylor', 'Bolzano'...)" class="search-box">
+  </div>
+
+  <div class="accordion" id="theoryAccordion">
+
+    <details class="theory-block" open>
+      <summary>1. Inequacions i valor absolut</summary>
+      <div class="theory-content">
+        <p>Per resoldre una inequació, es busquen els <b>punts crítics</b> (els punts on l'expressió val 0, o on el denominador s'anul·la si hi ha una fracció) i s'estudia el signe de l'expressió a cada interval que queda entre ells.</p>
+        <div class="example">
+          <b>Exemple:</b> $f(x) = |x^2-5x-24|$.<br>
+          $x^2-5x-24=0 \Rightarrow x=8,\ x=-3$. Aquests són els punts crítics.
+          <table class="sign-table">
+            <tr><th></th><th>$(-\infty,-3)$</th><th>$(-3,8)$</th><th>$(8,\infty)$</th></tr>
+            <tr><td>signe</td><td>+</td><td>−</td><td>+</td></tr>
+          </table>
+          Per tant: $f(x)=x^2-5x-24$ si $x\le -3$ o $x\ge 8$; i $f(x)=-(x^2-5x-24)$ si $-3 \lt x \lt 8$.
+        </div>
+        <p><b>Amb fraccions:</b> troba els punts crítics del numerador I del denominador; el signe final de la fracció és el producte dels signes.</p>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>2. Exponencials i logaritmes</summary>
+      <div class="theory-content">
+        <p><b>Propietats de l'exponencial</b> $f(x)=e^x$:</p>
+        <ul>
+          <li>$e^{a+b}=e^a\cdot e^b$</li>
+          <li>$(e^a)^b = e^{ab}$</li>
+          <li>$e^a/e^b = e^{a-b}$, &nbsp; $e^0=1$</li>
+        </ul>
+        <p><b>Propietats del logaritme:</b></p>
+        <ul>
+          <li>$\ln a = b \iff e^b=a$ &nbsp;(i $\ln 1 = 0$, ja que $e^0=1$)</li>
+          <li>$\ln(AB)=\ln A+\ln B$, &nbsp; $\ln(A/B)=\ln A-\ln B$</li>
+          <li>$\ln(A^c)=c\ln A$</li>
+          <li>Canvi de base: $\log_a x = \dfrac{\ln x}{\ln a}$</li>
+        </ul>
+        <div class="example">
+          <b>Equacions típiques:</b> quan apareix $e^x$ i $e^{-x}$ alhora, fes el canvi $t=e^x$: l'equació es converteix en una quadràtica en $t$. Descarta sempre les arrels $t\le 0$ (ja que $e^x>0$ sempre).<br>
+          Exemple: $e^x-6e^{-x}=1 \;\to\; t-\frac6t=1 \;\to\; t^2-t-6=0 \;\to\; t=3$ o $t=-2$ (descartat) $\Rightarrow x=\ln 3$.
+        </div>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>3. Trigonometria</summary>
+      <div class="theory-content">
+        <p><b>Identitats bàsiques:</b></p>
+        <ul>
+          <li>$\sin(-x)=-\sin x$, &nbsp; $\cos(-x)=\cos x$</li>
+          <li>$\sin(\pi-x)=\sin x$, &nbsp; $\sin(\pi+x)=-\sin x$</li>
+          <li>$\sin^2x+\cos^2x=1$</li>
+          <li>$\sin(x+y)=\sin x\cos y+\cos x\sin y$</li>
+          <li>$\cos(x+y)=\cos x\cos y-\sin x\sin y$</li>
+          <li>$\sin(2x)=2\sin x\cos x$</li>
+          <li>$\cos(2x)=\cos^2x-\sin^2x=1-2\sin^2x$</li>
+          <li>$\sec x=1/\cos x$, &nbsp;$\csc x = 1/\sin x$, &nbsp;$\cot x=\cos x/\sin x$</li>
+        </ul>
+        <table class="values-table">
+          <tr><th></th><th>$0°$</th><th>$30°$</th><th>$45°$</th><th>$60°$</th><th>$90°$</th></tr>
+          <tr><td>$\sin$</td><td>$0$</td><td>$1/2$</td><td>$\sqrt2/2$</td><td>$\sqrt3/2$</td><td>$1$</td></tr>
+          <tr><td>$\cos$</td><td>$1$</td><td>$\sqrt3/2$</td><td>$\sqrt2/2$</td><td>$1/2$</td><td>$0$</td></tr>
+          <tr><td>$\tan$</td><td>$0$</td><td>$1/\sqrt3$</td><td>$1$</td><td>$\sqrt3$</td><td>$\infty$</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>4. Límits: indeterminacions i regla de l'Hôpital</summary>
+      <div class="theory-content">
+        <div class="example exam-ex">
+          <b>🧮 Recepta pas a pas per a QUALSEVOL límit (segueix-la sempre en aquest ordre):</b>
+          <ol>
+            <li><b>Substitueix directament.</b> Posa el valor de $x\to a$ a la funció. Si dona un número concret (no $\frac00$, $\frac\infty\infty$, etc.), <b>ja has acabat</b>: aquest és el límit.</li>
+            <li><b>Si dona $\frac00$ amb polinomis o arrels:</b> prova de <b>factoritzar</b> i cancel·lar el factor que s'anul·la, o <b>multiplica pel conjugat</b> si hi ha una arrel. No cal l'Hôpital si això funciona.</li>
+            <li><b>Si segueix sense resoldre's (o és $\frac\infty\infty$):</b> comprova que és $\frac00$ o $\frac\infty\infty$ i aplica <b>l'Hôpital</b>: deriva numerador i denominador <i>per separat</i> (no la fracció sencera!) i torna a provar substituir.</li>
+            <li><b>Repeteix l'Hôpital</b> tantes vegades com faci falta mentre segueixi sortint $\frac00$ o $\frac\infty\infty$.</li>
+            <li><b>Si la indeterminació és $0\cdot\infty$, $\infty-\infty$, $1^\infty$, $0^0$ o $\infty^0$:</b> primer transforma-la en $\frac00$ o $\frac\infty\infty$ (vegeu els exemples més avall) i llavors aplica els passos 3–4.</li>
+          </ol>
+          Practica-ho a la pestanya <b>Exercicis → 🧮 Fonaments</b>: nivell 1 (substitució directa), nivell 2 (factoritzar/conjugat), nivell 3 (l'Hôpital), nivell 4 (indeterminacions amb exponents).
+        </div>
+        <p>Les <b>7 indeterminacions clàssiques</b>: $\dfrac00$, $\dfrac{\infty}{\infty}$, $0\cdot\infty$, $\infty-\infty$, $1^\infty$, $0^0$, $\infty^0$. Saber reconèixer-les és la meitat de la feina.</p>
+        <p><b>Regla de l'Hôpital</b> (per $0/0$ o $\infty/\infty$):
+        $$\lim_{x\to a}\frac{f(x)}{g(x)} = \lim_{x\to a}\frac{f'(x)}{g'(x)} = \ \cdots$$
+        (es pot repetir mentre segueixi sortint una indeterminació del mateix tipus).</p>
+        <div class="example">
+          <b>Tipus 2 — $0\cdot\infty$:</b> reescriu $f(x)g(x)$ com $\dfrac{f(x)}{1/g(x)}$ (queda $0/0$) o $\dfrac{g(x)}{1/f(x)}$ (queda $\infty/\infty$).<br>
+          Exemple: $\displaystyle\lim_{x\to0^+}x\ln x = \lim_{x\to0^+}\dfrac{\ln x}{1/x} \overset{\text{Hôpital}}{=} \lim_{x\to0^+}\dfrac{1/x}{-1/x^2}=\lim_{x\to0^+}(-x)=0$.
+        </div>
+        <div class="example">
+          <b>Tipus 3 — $1^\infty$, $0^0$, $\infty^0$:</b> escriu $f(x)^{g(x)} = e^{g(x)\ln f(x)}$ i resol el límit de l'exponent $g(x)\ln f(x)$ (que serà del tipus $0\cdot\infty$).<br>
+          Exemple: $\displaystyle\lim_{x\to2}\left(\dfrac{x}{2}\right)^{\frac1{x-2}} = e^{\lim_{x\to2}\frac{1}{x-2}\ln(x/2)} = e^{1/2}$.
+        </div>
+        <div class="example">
+          <b>Tipus 4 — $\infty-\infty$:</b> multiplica i divideix pel conjugat, o combina-ho en una sola fracció.
+        </div>
+        <p><b>Límits fonamentals</b> (molt útils, surten de l'Hôpital aplicat un cop):
+        $\displaystyle\lim_{x\to0}\frac{\sin x}{x}=1$, &nbsp;
+        $\displaystyle\lim_{x\to0}\frac{\tan x}{x}=1$, &nbsp;
+        $\displaystyle\lim_{x\to0}\frac{e^x-1}{x}=1$, &nbsp;
+        $\displaystyle\lim_{x\to0}\frac{\ln(1+x)}{x}=1$, &nbsp;
+        $\displaystyle\lim_{x\to0}\frac{1-\cos x}{x^2}=\frac12$.</p>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>5. Continuïtat: Bolzano i Weierstrass</summary>
+      <div class="theory-content">
+        <p>$f:[a,b]\to\mathbb{R}$ és <b>contínua</b> si es pot dibuixar sense aixecar el llapis del paper (informalment): no té salts ni trencaments.</p>
+        <p><b>Teorema de Bolzano:</b> si $f$ és contínua a $[a,b]$ i $f(a)\cdot f(b)<0$ (signes diferents), llavors existeix almenys un $c\in(a,b)$ amb $f(c)=0$.</p>
+        <div class="example">
+          <b>Exemple (existència):</b> $p(x)=4x^3-7x^2+9x-11$. $p(1)=-5<0$, $p(2)=11>0$. Pel teorema de Bolzano, hi ha una arrel entre $1$ i $2$.
+        </div>
+        <p><b>Per demostrar unicitat</b> (molt freqüent als exàmens): un cop trobada l'existència amb Bolzano, mostra que $f'(x)$ té sempre el mateix signe a l'interval (és estrictament monòtona) — això implica que el zero només pot ser-hi un cop.
+        <b>Truc ràpid:</b> si $f'(x)$ és una quadràtica senzilla com $3x^2+p$ (amb $p>0$), el seu valor mínim és al vèrtex $x=0$ i val exactament $p>0$: ja tens provat que mai s'anul·la, sense haver d'estudiar signes a trossos.</p>
+        <p><b>Teorema de Weierstrass:</b> si $f:[a,b]\to\mathbb{R}$ és contínua en un interval <b>tancat i acotat</b>, llavors $f$ assoleix un màxim absolut i un mínim absolut a $[a,b]$ (existeixen punts $c_m,c_M$ amb $f(c_m)\le f(x)\le f(c_M)$ per a tot $x$).</p>
+        <div class="example exam-ex">
+          <b>🔥 Model d'unicitat (Abril 2024, 2b):</b> $3x+\cos(2x)=3$ té una única solució a $[0,\pi/2]$.<br>
+          1) Defineix $g(x)=3x+\cos2x-3$ (contínua). 2) <b>Bolzano:</b> $g(0)=-2\lt0$, $g(\pi/2)=\frac{3\pi}2-4>0$ ⇒ almenys una arrel. 3) <b>Monotonia:</b> $g'(x)=3-2\sin2x\ge1>0$ ⇒ estrictament creixent ⇒ com a molt una. Conclusió: exactament una.
+        </div>
+        <p><b>Continuïtat en un punt amb paràmetre</b> (Test 2025): $f$ és contínua en $a$ si $\displaystyle\lim_{x\to a}f(x)=f(a)$. Si $f(x)=\frac{(\sin x^2)^2}{x^4}$ per $x\neq0$ i $f(0)=k$, cal $k=\lim_{x\to0}\left(\frac{\sin x^2}{x^2}\right)^2=1$.</p>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>6. Derivades: taula i regles</summary>
+      <div class="theory-content">
+        <div class="example exam-ex">
+          <b>🧮 Recepta pas a pas per derivar QUALSEVOL funció:</b> mira la funció de fora cap a dins i pregunta't, en aquest ordre:
+          <ol>
+            <li><b>És una suma o resta de termes</b> ($f+g$, $f-g$)? Deriva <b>cada terme per separat</b> i ja ho tens. (Un cop fet això per cada terme, els passos 2–4 s'apliquen a cada terme individualment.)</li>
+            <li><b>És un producte de dues funcions</b> ($u(x)\cdot v(x)$)? Fes servir la <b>regla del producte</b>: $(uv)'=u'v+uv'$.</li>
+            <li><b>És un quocient</b> ($u(x)/v(x)$)? Fes servir la <b>regla del quocient</b>: $\left(\frac{u}{v}\right)'=\frac{u'v-uv'}{v^2}$.</li>
+            <li><b>Hi ha una funció "dins" d'una altra</b> (p.ex. $\sin(3x)$, $e^{x^2}$, $\sqrt{x+1}$)? Fes servir la <b>regla de la cadena</b>: deriva la funció de fora (mirant la de dins com un bloc únic) i <b>multiplica pel que val la derivada de dins</b>. Mai t'oblidis d'aquest últim factor.</li>
+          </ol>
+          Moltes funcions combinen diversos passos: per exemple $x^2 e^{3x}$ és un <b>producte</b> ($x^2$ i $e^{3x}$) on un dels factors necessita la <b>cadena</b> ($e^{3x}$).<br>
+          Practica-ho per separat a <b>Exercicis → 🧮 Fonaments</b>: nivell 1 (potències i sumes), nivell 2 (cadena), nivell 3 (producte/quocient), nivell 4 (tot combinat).
+        </div>
+        <table class="deriv-table">
+          <tr><th>Funció</th><th>Derivada</th></tr>
+          <tr><td>$c$ (constant)</td><td>$0$</td></tr>
+          <tr><td>$x^n$</td><td>$nx^{n-1}$</td></tr>
+          <tr><td>$a^x$</td><td>$a^x\ln a$</td></tr>
+          <tr><td>$e^x$</td><td>$e^x$</td></tr>
+          <tr><td>$\log_a x$</td><td>$\dfrac{1}{x\ln a}$</td></tr>
+          <tr><td>$\ln x$</td><td>$\dfrac1x$</td></tr>
+          <tr><td>$\sin x$</td><td>$\cos x$</td></tr>
+          <tr><td>$\cos x$</td><td>$-\sin x$</td></tr>
+          <tr><td>$\tan x$</td><td>$\dfrac{1}{\cos^2 x}$</td></tr>
+          <tr><td>$\arcsin x$</td><td>$\dfrac{1}{\sqrt{1-x^2}}$</td></tr>
+          <tr><td>$\arccos x$</td><td>$\dfrac{-1}{\sqrt{1-x^2}}$</td></tr>
+          <tr><td>$\arctan x$</td><td>$\dfrac{1}{1+x^2}$</td></tr>
+        </table>
+        <p><b>Regles de combinació</b> (amb $g(x)$ dins):</p>
+        <ul>
+          <li>Cadena: $[f(g(x))]' = f'(g(x))\cdot g'(x)$</li>
+          <li>Producte: $(uv)'=u'v+uv'$</li>
+          <li>Quocient: $\left(\dfrac{u}{v}\right)' = \dfrac{u'v-uv'}{v^2}$</li>
+          <li>Potència general: $[g(x)^n]'=n\,g(x)^{n-1}g'(x)$</li>
+        </ul>
+        <p><b>Derivació logarítmica</b> per a $f(x)=u(x)^{v(x)}$ (Abril 2024, 1c): pren logaritmes $\ln f=v\ln u$ i deriva:
+        $$f'(x)=u^{v}\left[v'\ln u+v\,\frac{u'}{u}\right]$$
+        Exemple: $(2+\sin3x)^{\cos x}\Rightarrow f'=(2+\sin3x)^{\cos x}\left[-\sin x\ln(2+\sin3x)+\frac{3\cos x\cos3x}{2+\sin3x}\right]$.</p>
+        <p><b>Recta tangent</b> a $y=f(x)$ en $x=a$ (surt gairebé cada any): $$y-f(a)=f'(a)(x-a)$$
+        Exemple (Abril 2024): $f(x)=\ln(1+x^2)$ en $x=-2$: $f(-2)=\ln5$, $f'(-2)=-\frac45$ ⇒ $y=\ln5-\frac45(x+2)$.</p>
+        <p><b>Derivació implícita</b> (Llista 2): quan $y$ no està aïllada (p.ex. $x^2+y^2=25$), trata $y$ com una funció de $x$ i deriva els dos costats de l'equació respecte $x$, aplicant la cadena cada vegada que apareix $y$ (recorda: $(y^2)'=2y\,y'$, $(y^n)'=n y^{n-1}y'$). Al final, agrupa tots els termes amb $y'$ a un costat i aïlla'l.</p>
+        <div class="example">
+          <b>Exemple:</b> $x^2+y^2=25$ al punt $(3,4)$. Derivant: $2x+2yy'=0 \Rightarrow y'=-\dfrac{x}{y}$. Al punt: $y'=-\dfrac34$.
+        </div>
+        <div class="example">
+          <b>Exemple (producte):</b> $xy=12$ al punt $(3,4)$. Derivant amb la regla del producte: $y+xy'=0 \Rightarrow y'=-\dfrac{y}{x}=-\dfrac43$.
+        </div>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>7. Teoremes de Rolle i del Valor Mitjà</summary>
+      <div class="theory-content">
+        <p><b>Teorema del Valor Mitjà (Lagrange):</b> si $f$ és contínua a $[a,b]$ i derivable a $(a,b)$, existeix $c\in(a,b)$ tal que
+        $$f'(c) = \frac{f(b)-f(a)}{b-a}.$$</p>
+        <div class="example">
+          <b>Exemple clàssic (radar de trànsit):</b> un cotxe entra en un túnel de 5 km i en surt exactament 3 minuts després. $v_{mitjana} = \dfrac{5\text{ km}}{0.05\text{ h}} = 100$ km/h. Pel TVM, en algun instant la velocitat instantània va ser exactament 100 km/h (encara que la velocitat mitjana permesa fos 90 km/h).
+        </div>
+        <p><b>Teorema de Rolle:</b> cas particular del TVM quan $f(a)=f(b)$. Llavors existeix $c\in(a,b)$ amb $f'(c)=0$.</p>
+        <div class="example">
+          <b>Ús típic:</b> demostrar que un polinomi no pot tenir més d'una arrel real. Si $f(x)=x^3+2x+1$ tingués dues arrels $a,b$, per Rolle existiria $c$ amb $f'(c)=0$. Però $f'(x)=3x^2+2>0$ sempre (no té arrels reals): contradicció. Per tant $f$ té com a màxim una arrel real.
+        </div>
+        <p><b>Com trobar el "$c$" explícitament</b> (quan l'exercici te'l demana): iguala $f'(x)$ al valor que calgui ($0$ per Rolle, la taxa mitjana $\frac{f(b)-f(a)}{b-a}$ pel TVM) i resol l'equació en $x$. Si surten diverses solucions, queda't amb la que cau dins l'interval obert $(a,b)$ — la teoria garanteix que almenys una hi serà.</p>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>8. Estudi complet d'una funció</summary>
+      <div class="theory-content">
+        <p>Per fer un estudi complet (domini, creixement, extrems, convexitat, inflexió, asímptotes, esbós), segueix sempre aquest ordre:</p>
+        <ol>
+          <li><b>Domini:</b> mira denominadors (≠0), arrels parells (≥0), logaritmes (>0). Si n'hi ha més d'una condició, troba el domini de CADA una per separat i fes la intersecció.
+            <div class="example">
+              <b>Exemple combinat:</b> $f(x)=\dfrac{\sqrt{x-1}}{\ln(x-2)}$. Arrel: $x-1\ge0\Rightarrow x\ge1$. Logaritme: $x-2\gt0\Rightarrow x\gt2$. Denominador (el logaritme no pot ser $0$): $\ln(x-2)\neq0\Rightarrow x-2\neq1\Rightarrow x\neq3$. Intersecció: $\text{Dom}(f)=(2,\infty)\setminus\{3\}$ (la condició $x\ge1$ ja queda inclosa dins $x>2$).
+            </div>
+          </li>
+          <li><b>Punts de tall:</b> amb l'eix $Y$ ($x=0$) i amb l'eix $X$ ($f(x)=0$).</li>
+          <li><b>Creixement/decreixement:</b> calcula $f'(x)=0$ (punts crítics) i estudia el signe de $f'$ a cada interval.
+            <ul><li>Si $f'$ passa de $+$ a $-$: màxim relatiu.</li><li>Si passa de $-$ a $+$: mínim relatiu.</li></ul>
+          </li>
+          <li><b>Convexitat/concavitat:</b> calcula $f''(x)=0$ i estudia el seu signe.
+            <ul><li>$f''>0$: convexa ($\cup$). &nbsp; $f''<0$: còncava ($\cap$).</li><li>Canvi de signe de $f''$: punt d'inflexió.</li></ul>
+          </li>
+          <li><b>Asímptotes</b> (vegeu el bloc següent).</li>
+          <li><b>Esbós:</b> ajunta tota la informació anterior en un dibuix aproximat.</li>
+        </ol>
+        <p><b>Extrems absoluts en $[a,b]$</b> (Parcial 2025, 1d): si $f$ és contínua a $[a,b]$, per Weierstrass existeixen. Candidats: <b>els extrems $a$ i $b$</b> + <b>els punts crítics interiors</b> ($f'=0$ o $f'$ no existeix). Avalua $f$ a tots i compara.</p>
+        <div class="example exam-ex">
+          <b>🔥 Parcial 2025:</b> $f(x)=\frac{x^2+3}{x-1}$ a $[-2,0]$. Punt crític interior $x=-1$. $f(-2)=-\frac73$, $f(-1)=-2$, $f(0)=-3$ ⇒ màx. absolut $-2$, mín. absolut $-3$.
+        </div>
+        <p><b>Truc per a racionals $\frac{x^2+c}{x-d}$:</b> divideix primer: $f(x)=x+d+\frac{d^2+c}{x-d}$. Llavors l'asímptota obliqua és $y=x+d$, i $f'=1-\frac{d^2+c}{(x-d)^2}$, $f''=\frac{2(d^2+c)}{(x-d)^3}$ surten en una línia.</p>
+        <p><b>Criteri de les derivades successives:</b> si $f'(a)=\dots=f^{(n-1)}(a)=0$ i $f^{(n)}(a)\neq0$: si $n$ és parell hi ha extrem (mínim si $f^{(n)}(a)>0$, màxim si $\lt0$); si $n$ és senar, punt d'inflexió.</p>
+        <p><b>Logística</b> $f(x)=\frac{L}{1+e^{-k(x-x_0)}}$ (Test 2025): creixent, amb el punt d'inflexió a $x=x_0$, on $f(x_0)=\frac L2$.</p>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>9. Asímptotes</summary>
+      <div class="theory-content">
+        <p><b>Verticals</b> ($x=a$): quan $\displaystyle\lim_{x\to a}f(x)=\pm\infty$ (típicament on el denominador s'anul·la i el numerador no).</p>
+        <p><b>Horitzontals</b> ($y=b$): quan $\displaystyle\lim_{x\to\pm\infty}f(x)=b$ (un nombre finit).</p>
+        <p><b>Obliqües</b> ($y=mx+n$, només si no hi ha horitzontal): $$m=\lim_{x\to\pm\infty}\frac{f(x)}{x} \qquad n=\lim_{x\to\pm\infty}[f(x)-mx]$$ (cal que $m$ sigui finit i diferent de $0$, i $n$ finit).</p>
+        <div class="example">
+          <b>Exemple:</b> $f(x)=\dfrac{(x+2)^2}{x}$. &nbsp; $m=\displaystyle\lim_{x\to\infty}\frac{f(x)}{x}=1$. &nbsp;
+          $n=\displaystyle\lim_{x\to\infty}\left[\frac{(x+2)^2}{x}-x\right]=\lim_{x\to\infty}\frac{4x+4}{x}=4$.<br>
+          Asímptota obliqua: $y=x+4$.
+        </div>
+        <p><b>Posició respecte l'asímptota:</b> mira el signe de $f(x)-(mx+n)$ (o $f(x)-b$ per horitzontals) quan $x\to\pm\infty$: si és positiu, la corba queda per sobre; si és negatiu, per sota.</p>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>10. Problemes d'optimització</summary>
+      <div class="theory-content">
+        <p>Recepta en 6 passos:</p>
+        <ol>
+          <li>Determina la variable que vols fer màxima o mínima.</li>
+          <li>Expressa-la com una funció: la <b>funció objectiu</b> (normalment depèn de més d'una variable).</li>
+          <li>Busca, a partir de l'enunciat, una relació entre les variables: la <b>funció condició</b>.</li>
+          <li>Aïlla una variable a la funció condició i substitueix-la a la funció objectiu (ara depèn d'una sola variable).</li>
+          <li>Deriva la funció objectiu, iguala a $0$ i troba els candidats a màxim/mínim.</li>
+          <li><b>Comprova sempre</b> (amb la segona derivada, o estudiant signes) que el candidat és realment un màxim o un mínim, i que té sentit dins el context del problema (domini físic de la variable).</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>11. Polinomi de Taylor i fita de l'error</summary>
+      <div class="theory-content">
+        <p><b>Polinomi de Taylor</b> de grau $n$ de $f$ centrat en $c$:
+        $$P_c[f,n](x) = \sum_{k=0}^{n}\frac{f^{(k)}(c)}{k!}(x-c)^k = f(c)+f'(c)(x-c)+\frac{f''(c)}{2!}(x-c)^2+\cdots$$</p>
+        <p>És el polinomi que millor aproxima $f$ a prop de $c$: comparteix amb $f$ el valor i totes les derivades fins a ordre $n$ en el punt $c$.</p>
+        <p><b>Residu (error):</b> $R_n(x)=f(x)-P_c[f,n](x)$. &nbsp; <b>Forma de Lagrange:</b>
+        $$R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-c)^{n+1}, \qquad \xi \text{ entre } c \text{ i } x.$$</p>
+        <p><b>Fita de l'error</b> (forma de Weierstrass): si $M$ és una cota de $|f^{(n+1)}|$ a l'interval entre $c$ i $x$:
+        $$|R_n(x)| \le \frac{M}{(n+1)!}|x-c|^{n+1}$$</p>
+        <div class="example exam-ex">
+          <b>🔥 Parcial 2025, P2:</b> $f(x)=\frac{e^x-e^{-x}}{2}=\sinh x$. Les derivades alternen $\sinh,\cosh$: $f^{(k)}(0)=0$ ($k$ parell), $1$ ($k$ senar). $P_7(x)=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\frac{x^7}{7!}$.<br>
+          Error en $x=1$: $|R_7(1)|=\frac{|\sinh\xi|}{8!}$, $0\lt\xi\lt1$, i $\sinh\xi\lt\frac e2\lt\frac32$ ⇒ $|R_7(1)|\lt\frac{1.5}{8!}\approx3.7\cdot10^{-5}$.
+          <b>Clau:</b> digues sempre on és $\xi$, fita $|f^{(n+1)}(\xi)|$ per una constant $M$ justificant-ho (monotonia, $e\lt3$), i substitueix.
+        </div>
+        <div class="example">
+          <b>Exemple:</b> aproximar $e^{1/2}$ amb $P_5$ de $f(x)=e^x$ en $c=0$. $P_5(\tfrac12)\approx1.6487$. Com $e^{\xi}\le e^{1/2}<3=M$ per $\xi\in(0,\tfrac12)$:
+          $$|R_5(\tfrac12)| \le \frac{3}{6!}\left(\frac12\right)^6 \approx 6.5\times10^{-5}.$$
+        </div>
+        <div class="example exam-ex">
+          <b>📚 Llista 5 — "aproximació amb error més petit que $10^{-4}$":</b> (1) escriu la fita $|R_n(x)|\le\frac{M}{(n+1)!}|x|^{n+1}$; (2) prova $n=1,2,3,\dots$ fins que la fita sigui $\lt10^{-4}$; (3) avalua $P_n(x)$.<br>
+          $e^{0.3}$: amb $M=3$, $n=3$ dona $10^{-3}$ ✗ i $n=4$ dona $6\cdot10^{-5}$ ✓ ⇒ $e^{0.3}\approx1.34984$.<br>
+          <b>Truc de la derivada alta:</b> el coeficient de $x^k$ és $\frac{f^{(k)}(0)}{k!}$. Per a $g(x)=\cos x^2=1-\frac{x^4}2+\frac{x^8}{24}-\cdots$: $g^{(8)}(0)=\frac{8!}{24}=1680$.
+        </div>
+        <p><b>Desenvolupaments de Maclaurin</b> ($c=0$) més utilitzats:</p>
+        <ul>
+          <li>$e^x = 1+x+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\cdots$</li>
+          <li>$\sin x = x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\cdots$</li>
+          <li>$\cos x = 1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}-\cdots$</li>
+          <li>$\ln(1+x) = x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\cdots$</li>
+          <li>$\dfrac{1}{1-x} = 1+x+x^2+x^3+\cdots$</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>12. Interpolació polinomial (Newton i Lagrange)</summary>
+      <div class="theory-content">
+        <p>Donats $n+1$ punts $(x_0,y_0),\ldots,(x_n,y_n)$ amb $x_i$ diferents, existeix un <b>únic</b> polinomi $p(x)$ de grau $\le n$ tal que $p(x_i)=y_i$ per a tot $i$.</p>
+        <p><b>Mètode de Newton</b> (diferències dividides):
+        $$p_n(x) = f[x_0]+f[x_0,x_1](x-x_0)+f[x_0,x_1,x_2](x-x_0)(x-x_1)+\cdots$$
+        On $f[x_i,x_j]=\dfrac{f[x_j]-f[x_i]}{x_j-x_i}$ (i recursivament per a més punts). Avantatge: si afegeixes un punt nou, només cal calcular una fila més.</p>
+        <div class="example">
+          <b>Exemple</b> amb 4 punts $(30,-9.5),(40,-15.4),(50,-21.9),(60,-33.6)$:
+          calculant les diferències dividides successives s'arriba a
+          $p_3(x)=-9.5-0.59(x-30)-0.003(x-30)(x-40)-0.000766(x-30)(x-40)(x-50)$, i $p_3(45)\approx-18.29$.
+        </div>
+        <p><b>Mètode de Lagrange:</b>
+        $$p(x) = \sum_{i=0}^n y_i\, l_i(x), \qquad l_i(x)=\prod_{j=0,\,j\neq i}^{n}\frac{x-x_j}{x_i-x_j}$$
+        Cada $l_i(x)$ val $1$ a $x_i$ i $0$ a la resta de nodes. Més directe si no cal afegir punts nous.</p>
+        <p><b>Error d'interpolació:</b>
+        $$E(x) = f(x)-p_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}\prod_{i=0}^{n}(x-x_i)$$
+        (fórmula molt semblant al residu de Taylor). Amb $M_{n+1}=\sup|f^{(n+1)}|$: $$|E(x)|\le \frac{M_{n+1}}{(n+1)!}\prod_{i=0}^n|x-x_i|.$$</p>
+        <div class="example exam-ex">
+          <b>🔥 Test 2025:</b> punts $(1,2),(2,3),(4,7)$. $f[1,2]=1$, $f[2,4]=\frac{7-3}{2}=2$, $f[1,2,4]=\frac{2-1}{4-1}=\frac13$.
+          $P(x)=2+(x-1)+\frac13(x-1)(x-2)=\frac{x^2}{3}+\frac53$. <b>Truc al test:</b> substitueix els punts a cada opció i descarta.
+        </div>
+      </div>
+    </details>
+
+    <details class="theory-block">
+      <summary>13. Zeros de funcions: mètode de Newton</summary>
+      <div class="theory-content">
+        <p>Per aproximar una arrel de $f(x)=0$ a partir d'un valor inicial $x_0$, es pren la recta tangent en $x_n$ i on talla l'eix $X$:
+        $$x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}$$</p>
+        <p>Si $x_0$ és prou a prop de l'arrel i $f'\neq0$ allà, convergeix molt ràpid (el nombre de decimals correctes aproximadament es duplica a cada pas). Pot fallar si $f'(x_n)\approx0$ o si $x_0$ és lluny.</p>
+        <div class="example">
+          <b>Exemple:</b> $\sqrt2$ com a arrel de $f(x)=x^2-2$, $x_0=1$: $x_1=1-\frac{-1}{2}=1.5$, $x_2=1.5-\frac{0.25}{3}=\frac{17}{12}\approx1.41667$, $x_3\approx1.414216$.
+        </div>
+        <p><b>Abans d'aplicar Newton</b>, sovint es demana localitzar l'arrel amb Bolzano (trobar $[a,b]$ amb canvi de signe) i justificar que és única (monotonia).</p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ============ EXERCICIS ============ -->
+<section id="tab-exercicis" class="tab-panel">
+  <div class="card">
+    <h3>Tria un tipus d'exercici</h3>
+    <p class="chip-group-title basics-title">🧮 Fonaments: comença aquí si et costen derivades o límits</p>
+    <div class="chip-row" id="exerciseCategoryRow">
+      <button class="chip basics" data-cat="derivBasic">① Derivades: potències i sumes</button>
+      <button class="chip basics" data-cat="derivChain">② Derivades: regla de la cadena</button>
+      <button class="chip basics" data-cat="derivProdQuot">③ Derivades: producte i quocient</button>
+      <button class="chip basics" data-cat="derivative">④ Derivades: combinat (repte)</button>
+      <button class="chip basics" data-cat="limitDirect">① Límits: substitució directa</button>
+      <button class="chip basics" data-cat="limitFactor">② Límits: factoritzar / conjugat</button>
+      <button class="chip basics" data-cat="limit">③ Límits: regla de l'Hôpital</button>
+      <button class="chip basics" data-cat="powLimit">④ Límits: 1^∞, 0^0, ∞^0</button>
+      <span class="chip-sep">🧩 Coneixements base que falten (surten a gairebé tots els exàmens)</span>
+      <button class="chip basics" data-cat="domain">Domini d'una funció</button>
+      <button class="chip basics" data-cat="bolzano">Bolzano: existència + unicitat</button>
+      <button class="chip basics" data-cat="rolleTvm">Rolle / valor mitjà: troba c</button>
+      <button class="chip basics" data-cat="implicitDerivative">Derivació implícita</button>
+      <span class="chip-sep">🔥 Tipus examen 2025 / 2024 (prioritat)</span>
+      <button class="chip hot" data-cat="functionStudy">Estudi de funció</button>
+      <button class="chip hot" data-cat="taylorProblem">Taylor + fita</button>
+      <button class="chip hot" data-cat="taylorDegree">Taylor amb error &lt; 10⁻ᵏ (Llista 5)</button>
+      <button class="chip hot" data-cat="absExtrema">Extrems absoluts [a,b]</button>
+      <button class="chip hot" data-cat="continuity">Continuïtat (k)</button>
+      <button class="chip hot" data-cat="powLimit">Límits 1^∞ / 0^0</button>
+      <button class="chip hot" data-cat="expQuadratic">Equacions e^{4x}, e^{2x}</button>
+      <button class="chip hot" data-cat="tangent">Recta tangent</button>
+      <button class="chip hot" data-cat="logDerivative">Derivada f(x)^g(x)</button>
+      <button class="chip hot" data-cat="inequality">Inequacions</button>
+      <span class="chip-sep">Bàsics i altres</span>
+      <button class="chip" data-cat="derivative">Derivades</button>
+      <button class="chip" data-cat="limit">Límits (l'Hôpital)</button>
+      <button class="chip" data-cat="equation">Equacions exp./log.</button>
+      <button class="chip" data-cat="interpolation">Interpolació</button>
+      <button class="chip" data-cat="taylor">Taylor: valor</button>
+      <button class="chip" data-cat="taylorError">Taylor: fita</button>
+      <button class="chip" data-cat="asymptote">Asímptota obliqua</button>
+      <button class="chip" data-cat="newton">Mètode de Newton</button>
+    </div>
+    <p class="muted small">Pots escriure expressions: <code>ln(2)/2</code>, <code>e^2</code>, <code>sqrt(3)</code>, <code>pi/2</code>, <code>-7/3</code>, <code>log(2,8)</code>... Prem Enter per comprovar.</p>
+  </div>
+
+  <div class="card" id="exercisePanel" style="display:none;">
+    <div class="exercise-header">
+      <h3 id="exerciseTitle"></h3>
+      <span class="score-badge" id="exerciseScore">0 / 0</span>
+    </div>
+    <div class="exercise-prompt" id="exercisePrompt"></div>
+    <p class="exercise-instructions" id="exerciseInstructions"></p>
+
+    <div id="exerciseInputs" class="exercise-inputs"></div>
+
+    <div class="button-row">
+      <button class="btn-primary" id="checkBtn">Comprova</button>
+      <button class="btn-secondary" id="hintBtn">💡 Pista</button>
+      <button class="btn-secondary" id="solutionBtn">👁️ Mostra solució</button>
+      <button class="btn-secondary" id="nextBtn">➡️ Nou exercici</button>
+    </div>
+
+    <div id="feedbackArea" class="feedback"></div>
+    <div id="hintArea" class="hint-box" style="display:none;"></div>
+    <div id="solutionArea" class="solution-box" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- ============ TEST ============ -->
+<section id="tab-test" class="tab-panel">
+  <div class="card" id="testIntro">
+    <h3>Test</h3>
+    <div class="grid-2">
+      <div class="mode-box hot">
+        <h4>🔥 Format examen 2025</h4>
+        <p>5 preguntes amb 5 opcions (a–e). <b>+0.8</b> encert, <b>−0.2</b> error, 0 en blanc. Nota sobre 4. Preguntes reals de 2025, 2021 i 2018 i noves del mateix estil.</p>
+        <button class="btn-primary" id="startExamTestBtn">Comença (format 2025)</button>
+      </div>
+      <div class="mode-box">
+        <h4>📚 Pràctica conceptual</h4>
+        <p>10 preguntes aleatòries de tot el banc (teoremes, indeterminacions, derivades, asímptotes...).</p>
+        <button class="btn-secondary" id="startTestBtn">Comença la pràctica</button>
+      </div>
+    </div>
+  </div>
+  <div class="card" id="testRunner" style="display:none;"></div>
+  <div class="card" id="testResult" style="display:none;"></div>
+</section>
+
+<!-- ============ PROBLEMES RESOLTS ============ -->
+<section id="tab-resolts" class="tab-panel">
+  <div class="card">
+    <p class="muted">Les llistes de classe (Llista 0–5) resoltes són a la pestanya <button class="link-btn" data-goto="llistes">📚 Llistes de classe</button>.</p>
+  </div>
+  <div class="card">
+    <h3>Altres problemes resolts d'exàmens anteriors</h3>
+    <p>Problemes extrets i adaptats d'exàmens anteriors, amb solució pas a pas.</p>
+  </div>
+  <div id="solvedProblemsList"></div>
+</section>
+
+<!-- ============ SIMULACRE ============ -->
+<section id="tab-simulacre" class="tab-panel">
+  <div class="card" id="examIntro">
+    <h3>Simulacre d'examen — format 2025</h3>
+    <ul>
+      <li><b>Test (4 punts):</b> 5 preguntes, 5 opcions, +0.8 / −0.2 / en blanc 0.</li>
+      <li><b>Problema 1 (3 punts):</b> estudi d'una funció racional (asímptotes, extrems, convexitat), com el de 2025.</li>
+      <li><b>Problema 2 (3 punts):</b> Taylor + fita de l'error, o extrems absoluts en un interval.</li>
+    </ul>
+    <p class="muted">Fes els càlculs en paper (com a l'examen) i escriu els resultats a les caselles. Nota sobre 10.</p>
+    <label class="inline-label">Durada:
+      <select id="examMinutes" class="input-field select">
+        <option value="60">60 minuts</option>
+        <option value="90" selected>90 minuts</option>
+        <option value="120">120 minuts</option>
+      </select>
+    </label>
+    <button class="btn-primary" id="startExamBtn">Comença el simulacre</button>
+  </div>
+  <div class="card" id="examRunner" style="display:none;"></div>
+  <div class="card" id="examResult" style="display:none;"></div>
+</section>
+
+</main>
+
+<footer>
+  <p>Generat a partir dels teus apunts, llistes i exàmens de Càlcul (UAB) · Bona sort al parcial! 🍀</p>
+</footer>
+
+<script src="vendor/katex/katex.min.js"></script>
+<script src="vendor/katex/auto-render.min.js"></script>
+<script src="js/mathparser.js"></script>
+<script src="js/exercises.js"></script>
+<script src="js/quizdata.js"></script>
+<script src="js/examsdata.js"></script>
+<script src="js/llistesdata.js"></script>
+<script src="js/plandata.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
